@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:playground/core/env.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,6 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('flavor: ${Flavor.current}');
+    debugPrint('apiBaseUrl: ${Env.apiBaseUrl}');
   }
 
   @override
