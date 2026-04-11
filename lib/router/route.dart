@@ -6,6 +6,9 @@ import 'package:playground/feature/ble/ui/page/ble_page.dart';
 import 'package:playground/feature/ble/ui/page/ble_peripheral_page.dart';
 import 'package:playground/feature/ble/ui/page/counter_display_page.dart';
 import 'package:playground/feature/ble/ui/page/counter_remote_page.dart';
+import 'package:playground/feature/wifi/ui/page/wifi_browser_page.dart';
+import 'package:playground/feature/wifi/ui/page/wifi_client_page.dart';
+import 'package:playground/feature/wifi/ui/page/wifi_server_page.dart';
 
 part 'route.g.dart';
 
@@ -21,22 +24,27 @@ part 'route.g.dart';
         TypedGoRoute<BleDeviceRoute>(path: ':deviceId'),
       ],
     ),
+    TypedGoRoute<WifiBrowserRoute>(
+      path: 'wifi',
+      routes: [
+        TypedGoRoute<WifiServerRoute>(path: 'server'),
+        TypedGoRoute<WifiClientRoute>(path: 'chat/:host/:port'),
+      ],
+    ),
   ],
 )
 class HomeRoute extends GoRouteData with $HomeRoute {
   const HomeRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const MyHomePage();
+  Widget build(BuildContext context, GoRouterState state) => const MyHomePage();
 }
 
 class BleRoute extends GoRouteData with $BleRoute {
   const BleRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const BlePage();
+  Widget build(BuildContext context, GoRouterState state) => const BlePage();
 }
 
 class BleDeviceRoute extends GoRouteData with $BleDeviceRoute {
@@ -57,8 +65,7 @@ class BlePeripheralRoute extends GoRouteData with $BlePeripheralRoute {
       const BlePeripheralPage();
 }
 
-class CounterDisplayRoute extends GoRouteData
-    with $CounterDisplayRoute {
+class CounterDisplayRoute extends GoRouteData with $CounterDisplayRoute {
   const CounterDisplayRoute();
 
   @override
@@ -66,8 +73,7 @@ class CounterDisplayRoute extends GoRouteData
       const CounterDisplayPage();
 }
 
-class CounterRemoteRoute extends GoRouteData
-    with $CounterRemoteRoute {
+class CounterRemoteRoute extends GoRouteData with $CounterRemoteRoute {
   const CounterRemoteRoute({required this.deviceId});
 
   final String deviceId;
@@ -75,4 +81,31 @@ class CounterRemoteRoute extends GoRouteData
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       CounterRemotePage(deviceId: deviceId);
+}
+
+class WifiBrowserRoute extends GoRouteData with $WifiBrowserRoute {
+  const WifiBrowserRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const WifiBrowserPage();
+}
+
+class WifiServerRoute extends GoRouteData with $WifiServerRoute {
+  const WifiServerRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const WifiServerPage();
+}
+
+class WifiClientRoute extends GoRouteData with $WifiClientRoute {
+  const WifiClientRoute({required this.host, required this.port});
+
+  final String host;
+  final int port;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      WifiClientPage(host: host, port: port);
 }

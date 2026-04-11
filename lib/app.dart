@@ -36,6 +36,10 @@ class MyHomePage extends StatelessWidget {
             onPressed: () => const BleRoute().push<void>(context),
             child: const Text('BLE'),
           ),
+          TextButton(
+            onPressed: () => const WifiBrowserRoute().push<void>(context),
+            child: const Text('Wi-Fi'),
+          ),
         ],
       ),
     );

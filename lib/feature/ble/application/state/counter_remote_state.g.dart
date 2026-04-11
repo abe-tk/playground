@@ -59,7 +59,7 @@ final class CounterRemoteNotifierProvider
 }
 
 String _$counterRemoteNotifierHash() =>
-    r'fc6e6f62d5049e10dab46d089ecfc580c067d97d';
+    r'8554459664ab114c6b6ebf2d29508c217d4a40ee';
 
 final class CounterRemoteNotifierFamily extends $Family
     with

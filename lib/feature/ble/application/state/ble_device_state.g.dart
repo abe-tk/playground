@@ -58,7 +58,7 @@ final class BleDeviceNotifierProvider
   }
 }
 
-String _$bleDeviceNotifierHash() => r'2f2c608bca94fa7ced0ae7ef86077470cb981bbf';
+String _$bleDeviceNotifierHash() => r'9a17fe8524a398e0b74f67d1206914d2e6fc53b4';
 
 final class BleDeviceNotifierFamily extends $Family
     with

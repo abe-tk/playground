@@ -42,7 +42,7 @@ final class BlePeripheralNotifierProvider
 }
 
 String _$blePeripheralNotifierHash() =>
-    r'1aad939d1a3d37b1362e3f26c631f7dd42cfdb36';
+    r'a98623c2070b3f8436ea1a445cebf82cd35701f9';
 
 abstract class _$BlePeripheralNotifier extends $Notifier<BlePeripheralState> {
   BlePeripheralState build();

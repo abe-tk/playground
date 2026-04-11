@@ -34,6 +34,20 @@ RouteBase get $homeRoute => GoRouteData.$route(
         ),
       ],
     ),
+    GoRouteData.$route(
+      path: 'wifi',
+      factory: $WifiBrowserRoute._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'server',
+          factory: $WifiServerRoute._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'chat/:host/:port',
+          factory: $WifiClientRoute._fromState,
+        ),
+      ],
+    ),
   ],
 );
 
@@ -153,6 +167,75 @@ mixin $BleDeviceRoute on GoRouteData {
   @override
   String get location =>
       GoRouteData.$location('/ble/${Uri.encodeComponent(_self.deviceId)}');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $WifiBrowserRoute on GoRouteData {
+  static WifiBrowserRoute _fromState(GoRouterState state) =>
+      const WifiBrowserRoute();
+
+  @override
+  String get location => GoRouteData.$location('/wifi');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $WifiServerRoute on GoRouteData {
+  static WifiServerRoute _fromState(GoRouterState state) =>
+      const WifiServerRoute();
+
+  @override
+  String get location => GoRouteData.$location('/wifi/server');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin $WifiClientRoute on GoRouteData {
+  static WifiClientRoute _fromState(GoRouterState state) => WifiClientRoute(
+    host: state.pathParameters['host']!,
+    port: int.parse(state.pathParameters['port']!),
+  );
+
+  WifiClientRoute get _self => this as WifiClientRoute;
+
+  @override
+  String get location => GoRouteData.$location(
+    '/wifi/chat/${Uri.encodeComponent(_self.host)}/${Uri.encodeComponent(_self.port.toString())}',
+  );
 
   @override
   void go(BuildContext context) => context.go(location);

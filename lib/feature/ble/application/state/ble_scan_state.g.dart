@@ -41,7 +41,7 @@ final class BleScanNotifierProvider
   }
 }
 
-String _$bleScanNotifierHash() => r'a9684f55a89d9c700a52eec5d6860257f3a56ceb';
+String _$bleScanNotifierHash() => r'5168e015fdc63ff3421ae1384cbb51c75c26cf75';
 
 abstract class _$BleScanNotifier extends $Notifier<BleScanState> {
   BleScanState build();

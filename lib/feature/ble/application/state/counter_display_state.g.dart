@@ -42,7 +42,7 @@ final class CounterDisplayNotifierProvider
 }
 
 String _$counterDisplayNotifierHash() =>
-    r'8eb29ec6e59d0cca4e7df7900590458c441a67cb';
+    r'9d87e8e9277fad75ae712aa141d023b14f9c4f52';
 
 abstract class _$CounterDisplayNotifier extends $Notifier<CounterDisplayState> {
   CounterDisplayState build();
