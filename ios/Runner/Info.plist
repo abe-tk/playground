@@ -57,6 +57,8 @@
 	<array>
 		<string>_playground._tcp</string>
 	</array>
+	<key>NFCReaderUsageDescription</key>
+	<string>NFC タグの読み取り・書き込みに使用します</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

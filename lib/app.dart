@@ -40,6 +40,10 @@ class MyHomePage extends StatelessWidget {
             onPressed: () => const WifiBrowserRoute().push<void>(context),
             child: const Text('Wi-Fi'),
           ),
+          TextButton(
+            onPressed: () => const NfcRoute().push<void>(context),
+            child: const Text('NFC'),
+          ),
         ],
       ),
     );

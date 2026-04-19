@@ -6,6 +6,7 @@ import 'package:playground/feature/ble/ui/page/ble_page.dart';
 import 'package:playground/feature/ble/ui/page/ble_peripheral_page.dart';
 import 'package:playground/feature/ble/ui/page/counter_display_page.dart';
 import 'package:playground/feature/ble/ui/page/counter_remote_page.dart';
+import 'package:playground/feature/nfc/ui/page/nfc_page.dart';
 import 'package:playground/feature/wifi/ui/page/wifi_browser_page.dart';
 import 'package:playground/feature/wifi/ui/page/wifi_client_page.dart';
 import 'package:playground/feature/wifi/ui/page/wifi_server_page.dart';
@@ -31,6 +32,7 @@ part 'route.g.dart';
         TypedGoRoute<WifiClientRoute>(path: 'chat/:host/:port'),
       ],
     ),
+    TypedGoRoute<NfcRoute>(path: 'nfc'),
   ],
 )
 class HomeRoute extends GoRouteData with $HomeRoute {
@@ -108,4 +110,11 @@ class WifiClientRoute extends GoRouteData with $WifiClientRoute {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       WifiClientPage(host: host, port: port);
+}
+
+class NfcRoute extends GoRouteData with $NfcRoute {
+  const NfcRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const NfcPage();
 }
